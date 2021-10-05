@@ -1,0 +1,60 @@
+{
+  "name": "wp-nuxt-stack-starter",
+  "version": "1.0.0",
+  "description": "Wordpress + Nuxt + Nuxt Stack -- Starter",
+  "main": "index.js",
+  "author": "yashha <yasarkkk@protonmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap-vue": "^2.21.2",
+    "nuxt": "^2.15.8",
+    "nuxt-stack": "^0.8.1",
+    "wp-nuxt": "^1.0.21",
+    "@nuxtjs/axios": "^5.13.6"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "clean": "nuxt clean",
+    "serve": "nuxt serve",
+    "start": "nuxt start",
+    "stats": "nuxt stats",
+    "build": "nuxt build --modern=server",
+    "generate": "nuxt generate --modern=client",
+    "format": "nuxt format --write --lint '*.{md}' 'src/**/*.{js,json,scss,vue}'",
+    "lint": "nuxt lint . --fix",
+    "test": "nuxt test",
+    "commit": "commit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "nuxt format --write --lint",
+      "nuxt lint --fix",
+      "nuxt test --related",
+      "git add"
+    ],
+    "src/**/*.{html,json,scss}": [
+      "nuxt format --write",
+      "git add"
+    ],
+    "*.{md}": [
+      "nuxt format --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@nuxt/image": "^0.6.0",
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "autoprefixer": "^10.3.6",
+    "nuxt-purgecss": "^1.0.0",
+    "postcss": "^8.3.8",
+    "postcss-import": "^14.0.2",
+    "postcss-nested": "^5.0.6",
+    "tailwindcss": "^2.2.16"
+  }
+}
