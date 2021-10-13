@@ -23,6 +23,7 @@ export default {
     "nuxt-stack",
     '@nuxt/image',
     "@nuxtjs/axios",
+    "@nuxtjs/gtm",
     //'bootstrap-vue/nuxt'
     //'@nuxtjs/tailwindcss'
   ],
@@ -31,7 +32,10 @@ export default {
     // '@nuxt/image',
   ],
   axios: {   
-    baseURL: "https://apptotapi1.tk:4099/"
+    baseURL: "https://apptotapi2.tk:4099/"
+  },
+  gtm: {
+    id: "GTM-TPQ9C5Q"
   },
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",

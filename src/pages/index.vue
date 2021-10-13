@@ -159,7 +159,7 @@ export default {
   methods: {
     async onChange(val) {
       console.log(this.goicuoc)
-      const url = "https://apptotapi1.tk:4099/" + this.goicuoc + "?h=1"
+      const url = "https://apptotapi2.tk:4099/" + this.goicuoc + "?h=1"
       this.items = await fetch(url).then((res) => res.json())
     }
   }
