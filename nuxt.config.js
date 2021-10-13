@@ -17,13 +17,15 @@ export default {
     //   }
     // ]
   //},
- 
+  plugins: [
+    "@/plugins/gtm.js",
+  ],
   modules: [
     "wp-nuxt",
     "nuxt-stack",
     '@nuxt/image',
     "@nuxtjs/axios",
-    "@nuxtjs/gtm",
+   // "@nuxtjs/gtm",
     //'bootstrap-vue/nuxt'
     //'@nuxtjs/tailwindcss'
   ],
@@ -34,9 +36,9 @@ export default {
   axios: {   
     baseURL: "https://apptotapi2.tk:4099/"
   },
-  gtm: {
-    id: "GTM-TPQ9C5Q"
-  },
+  // gtm: {
+  //   id: "GTM-TPQ9C5Q"
+  // },
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",
     configPath: "tailwind.config.js",
@@ -59,18 +61,6 @@ export default {
       "https://fonts.googleapis.com"
     ]
   },
-  // webfonts: {
-  //   custom: {
-  //     families: [
-  //       "Quicksand:500",
-  //       "Roboto Mono:400"
-  //     ],
-  //     urls: [
-  //       'https://cdn.jsdelivr.net/npm/typeface-quicksand@0.0.71/index.min.css',
-  //       'https://cdn.jsdelivr.net/npm/roboto-mono-webfont@2.0.986/roboto-mono.min.css'
-  //     ]
-  //   }
-  // },
   feed: [
     wpNuxtFeed({
       endpoint: "https://wp.kmr.io/wp-json"
