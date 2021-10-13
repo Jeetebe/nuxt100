@@ -10,12 +10,12 @@ export default () => {
   /*
    ** Only run if it's not prevented by user
    */
-  if (Cookies.get("disable-gtm")) return
-  /*
-   ** Include Google Tag Manager
-   */
+  if (Cookies.get("disable-gtm"))
+    return /*
+     ** Include Google Tag Manager
+     */
   ;(function(i, s, o, g, r, a, m) {
-    i["GoogleAnalyticsObject"] = r
+    i.GoogleAnalyticsObject = r
     ;(i[r] =
       i[r] ||
       function() {
@@ -33,13 +33,12 @@ export default () => {
     "https://www.google-analytics.com/analytics.js",
     "ga"
   )
-
   ;(function(w, d, s, l, i) {
     w[l] = w[l] || []
     w[l].push({ "gtm.start": new Date().getTime(), "event": "gtm.js" })
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != "dataLayer" ? "&l=" + l : ""
+    var f = d.getElementsByTagName(s)[0]
+    var j = d.createElement(s)
+    var dl = l != "dataLayer" ? "&l=" + l : ""
     j.async = true
     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
     f.parentNode.insertBefore(j, f)

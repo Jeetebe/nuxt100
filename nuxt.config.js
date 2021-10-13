@@ -17,9 +17,9 @@ export default {
     //   }
     // ]
   //},
-  plugins: [
-    "@/plugins/gtm.js",
-  ],
+  // plugins: [
+  //   "@/plugins/gtm.js",
+  // ],
   modules: [
     "wp-nuxt",
     "nuxt-stack",
