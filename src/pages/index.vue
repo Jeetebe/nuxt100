@@ -1,48 +1,52 @@
 <template>
   <div>
     <nuxt-img
-      src="/img/top.webp"
+      src="/img/top.jpg"
       alt="Top"
       sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
     />
     <div style="padding: 8px">
       <div class="" style="margin: 8px">
         <div class="">
-          <div class="">
-            <label class="w-full block text-gray-800">Chọn gói cước</label>
+          <div class="flex flex-row">
+            <!-- <label class="inline-block">Chọn gói cước</label> -->
+            <nuxt-img
+              src="/img/chon.jpg"
+              alt="Top"
+              class="h-8"
+              sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+            />
             <div class="relative w-full border-none">
               <select
                 id="comboA"
                 v-model="goicuoc"
                 class="
-                appearance-none
-                border border-gray-300
-                inline-block
-                py-2
-                pl-3
-                pr-8
-                rounded
-                leading-tight
-                w-full
-                bg-white
-              "
+                  text-white
+                  bg-red-500
+                  appearance-none
+                  border border-gray-300
+                  inline-block
+                  py-2
+                  pl-3
+                  pr-8
+                  rounded
+                  leading-tight
+                "
                 @change="onChange($event)"
               >
-                <option value="cs21g">
-                  CS21G
-                </option>
+                <option value="cs21g">CS21G</option>
                 <option value="cs21g3">CS21G3</option>
               </select>
               <div
                 class="
-                pointer-events-none
-                absolute
-                inset-y-0
-                right-0
-                flex
-                items-center
-                px-2
-              "
+                  pointer-events-none
+                  absolute
+                  inset-y-0
+                  right-0
+                  flex
+                  items-center
+                  px-2
+                "
               ></div>
             </div>
           </div>
@@ -54,18 +58,27 @@
       </b-table> -->
         <table>
           <tr>
-            <td style="font-weight: bold; text-align: center; width:32px">#</td>
+            <td style="font-weight: bold; text-align: center; width: 32px">
+              #
+            </td>
             <td style="font-weight: bold; text-align: center">SIM SỐ</td>
-            <td style="font-weight: bold; text-align: center">GIÁ</td>
-            <td style="font-weight: bold; text-align: center"></td>
+
+            <td style="font-weight: bold; text-align: center" colspan="2">
+              GIÁ BÁN
+            </td>
+            <td style="font-weight: bold; text-align: center">ĐẶT MUA</td>
           </tr>
 
           <tr v-for="(row, indx) in items" :key="indx" :index="indx">
-            <td style="padding-left: 8px; width:16px">{{ indx }}</td>
+            <td style="padding-left: 8px; width: 16px">{{ indx }}</td>
             <td>{{ row.thuebao }}</td>
-            <td style="text-align: center">{{ row.gia }}</td>
+            <td style="text-align: center" class="line-through">109.000đ</td>
+            <td style="text-align: center" class="text-red-500 font-bold">
+              {{ row.gia }}
+            </td>
             <td style="text-align: right">
               <button
+                class="datngay"
                 @click="
                   $router.push({
                     name: 'book',
@@ -85,16 +98,43 @@
     </div>
 
     <nuxt-img
-      src="/img/bottom.webp"
+      src="/img/middle.jpg"
       alt="Top"
-      style="width: 100%; height: auto; margin-top:16px"
+      style="width: 100%; height: auto"
+      sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+    />
+    <div class="grid grid-cols-2">
+      <nuxt-img
+        src="/img/21g.jpg"
+        alt="Top"
+        style="width: 100%; height: auto"
+        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+      />
+      <nuxt-img
+        src="/img/21g3.jpg"
+        alt="Top"
+        style="width: 100%; height: auto"
+        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+      />
+    </div>
+
+    <nuxt-img
+      src="/img/bottom.jpg"
+      alt="Top"
+      style="width: 100%; height: auto"
       sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
     />
     <a href="https://zalo.me/4045465745174208191" title="zalo">
       <nuxt-img
         src="/img/zalo.png"
         alt="Top"
-        style="width: 90px; height: 100px;  position: fixed; bottom:0px; right: 0px"
+        style="
+          width: 90px;
+          height: 100px;
+          position: fixed;
+          bottom: 0px;
+          right: 0px;
+        "
       />
     </a>
   </div>
@@ -178,12 +218,13 @@ table {
   table-layout: fixed;
   width: 100%;
   margin-top: 16px;
+  font-size: 12px;
 }
 table td {
   width: 100%;
 }
 button {
-  background: #0b62ab;
+  background: #0065f7;
   border: none;
   color: white;
   padding: 8px;

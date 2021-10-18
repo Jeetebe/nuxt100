@@ -27,7 +27,7 @@ export default {
     "@nuxtjs/axios",
    // "@nuxtjs/gtm",
     //'bootstrap-vue/nuxt'
-    //'@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss'
   ],
   buildModules: [
    // '@nuxtjs/tailwindcss'
