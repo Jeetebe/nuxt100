@@ -100,22 +100,26 @@
     <nuxt-img
       src="/img/middle.jpg"
       alt="Top"
-      style="width: 100%; height: auto"
+      style="width: 100%; height: 100%"
       sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
     />
-    <div class="grid grid-cols-2">
-      <nuxt-img
-        src="/img/21g.jpg"
-        alt="Top"
-        style="width: 100%; height: auto"
-        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-      />
-      <nuxt-img
-        src="/img/21g3.jpg"
-        alt="Top"
-        style="width: 100%; height: auto"
-        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-      />
+    <div class="flex flex-row">
+      <a href="sms:9084?&amp;body=BK1 CS21G" class="dangky w-full">
+        <nuxt-img
+          src="/img/21g.jpg"
+          alt="Top"
+          style="width: 100%; height: auto"
+          sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+        />
+      </a>
+      <a href="sms:9084?&amp;body=BK1 CS21G3" class="dangky w-full">
+        <nuxt-img
+          src="/img/21g3.jpg"
+          alt="Top"
+          style="width: 100%; height: auto"
+          sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+        />
+      </a>
     </div>
 
     <nuxt-img
