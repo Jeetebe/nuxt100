@@ -33,8 +33,7 @@
               bg-white
               rounded
               border border-gray-300
-              focus:border-indigo-500
-              focus:ring-2 focus:ring-indigo-200
+              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
               text-base
               outline-none
               text-gray-700
@@ -61,8 +60,7 @@
               bg-white
               rounded
               border border-gray-300
-              focus:border-indigo-500
-              focus:ring-2 focus:ring-indigo-200
+              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
               text-base
               outline-none
               text-gray-700
@@ -89,8 +87,7 @@
               bg-white
               rounded
               border border-gray-300
-              focus:border-indigo-500
-              focus:ring-2 focus:ring-indigo-200
+              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
               text-base
               outline-none
               text-gray-700
@@ -103,54 +100,29 @@
             "
           />
         </div>
-        <div class="grid grid-cols-2 gap-3">
-          <button
-            class="
-              bg-gray-400
-              text-white
-              active:bg-gray-700
-              text-sm
-              font-bold
-              uppercase
-              px-6
-              py-3
-              rounded
-              hover:shadow-lg
-              outline-none
-              focus:outline-none
-              mr-1
-              mb-1
-              w-full
-              mt-4
-            "
-            @click="gohome"
-          >
-            TRỞ VỀ
-          </button>
-          <button
-            class="
-              bg-xanhduong
-              text-white
-              active:bg-gray-700
-              text-sm
-              font-bold
-              uppercase
-              px-6
-              py-3
-              rounded
-              hover:shadow-lg
-              outline-none
-              focus:outline-none
-              mr-1
-              mb-1
-              w-full
-              mt-4
-            "
-            type="submit"
-          >
-            ĐẶT MUA
-          </button>
-        </div>
+        <button
+          class="
+            bg-xanhduong
+            text-white
+            active:bg-gray-700
+            text-sm
+            font-bold
+            px-6
+            py-2
+            rounded
+            hover:shadow-lg
+            outline-none
+            focus:outline-none
+            mr-1
+            mb-1
+            w-full
+            mt-4
+          "
+          type="submit"
+        >
+          <p class="uppercase font-bold text-2xl datmuasim">ĐẶT MUA SIM</p>
+          <span>FreeShip tận nơi</span>
+        </button>
       </form>
     </div>
   </div>

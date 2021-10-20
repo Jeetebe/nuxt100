@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <nuxt-img
       src="/img/top.jpg"
       alt="Top"
@@ -31,11 +31,12 @@
                   pr-8
                   rounded
                   leading-tight
+                  minimal
                 "
                 @change="onChange($event)"
               >
-                <option value="cs21g">CS21G</option>
-                <option value="cs21g3">CS21G3</option>
+                <option value="cs21g">CS21G &nbsp;</option>
+                <option value="cs21g3">CS21G3 &nbsp;</option>
               </select>
               <div
                 class="
@@ -59,7 +60,7 @@
         <table>
           <tr>
             <td style="font-weight: bold; text-align: center; width: 32px">
-              #
+              STT
             </td>
             <td style="font-weight: bold; text-align: center">SIM SỐ</td>
 
@@ -70,15 +71,24 @@
           </tr>
 
           <tr v-for="(row, indx) in items" :key="indx" :index="indx">
-            <td style="padding-left: 8px; width: 16px">{{ indx }}</td>
-            <td>{{ row.thuebao }}</td>
-            <td style="text-align: center" class="line-through">109.000đ</td>
+            <td style="padding-left: 8px; width: 16px">{{ indx + 1 }}</td>
+            <td style="text-align: center">{{ row.thuebao }}</td>
+            <td
+              v-if="row.goicuoc == 'CS21G'"
+              style="text-align: center"
+              class="line-through"
+            >
+              109.000đ
+            </td>
+            <td v-else style="text-align: center" class="line-through">
+              227.000đ
+            </td>
             <td style="text-align: center" class="text-red-500 font-bold">
               {{ row.gia }}
             </td>
-            <td style="text-align: right">
+            <td style="text-align: center">
               <button
-                class="datngay"
+                class="datngay my-1 p-1 bg-blue-600 text-white rounded-sm"
                 @click="
                   $router.push({
                     name: 'book',
@@ -226,11 +236,27 @@ table {
 }
 table td {
   width: 100%;
+  border-bottom: 1px solid gray;
 }
-button {
-  background: #0065f7;
-  border: none;
-  color: white;
-  padding: 8px;
+select.minimal {
+  background-image: linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg, white 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image: linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
 }
 </style>

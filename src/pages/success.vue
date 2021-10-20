@@ -1,13 +1,16 @@
 <template>
   <div class="jumbotron text-center">
-    <h2 class="display-3">Thành công</h2>
-    <p class="lead">
-      <strong>Xin cảm ơn !</strong>
+    <!-- <h2 class="display-3">Thành công</h2> -->
+    <p class="font-semibold text-2xl">
+      <strong
+        >Cảm ơn quý khách đã mua hàng - Sim của quý khách sẽ được giao miễn phí
+        tận nơi</strong
+      >
     </p>
     <hr />
 
     <p class="lead">
-      <a class="btn btn-primary btn-sm" href="/" role="button">Trở về</a>
+      <a class="btn btn-primary btn" href="/" role="button">Trở về</a>
     </p>
   </div>
 </template>
