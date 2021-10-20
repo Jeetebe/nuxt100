@@ -1,5 +1,6 @@
 <template>
   <div class="bg-white">
+    Version 20.10
     <nuxt-img
       src="/img/top.jpg"
       alt="Top"
