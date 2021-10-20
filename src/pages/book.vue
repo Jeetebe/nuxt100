@@ -17,12 +17,10 @@
       </div>
     </div>
     <div class="p-3">
-      <p class="uppercase text-black font-semibold">thông tin giao hàng</p>
+      <p class="uppercase text-black font-bold">thông tin giao hàng</p>
       <form autocomplete="off" @submit.stop.prevent="submitClick">
         <div class="relative mb-2">
-          <label
-            for="email"
-            class="leading-7 text-sm text-greenfresh font-semibold"
+          <label for="email" class="leading-7 text-sm text-greenfresh font-bold"
             >Họ tên</label
           >
           <input
@@ -47,9 +45,7 @@
           />
         </div>
         <div class="relative mb-2">
-          <label
-            for="email"
-            class="leading-7 text-sm text-greenfresh font-semibold"
+          <label for="email" class="leading-7 text-sm text-greenfresh font-bold"
             >Số điện thoại</label
           >
           <input
@@ -74,9 +70,7 @@
           />
         </div>
         <div class="relative mb-2">
-          <label
-            for="email"
-            class="leading-7 text-sm text-greenfresh font-semibold"
+          <label for="email" class="leading-7 text-sm text-greenfresh font-bold"
             >Địa chỉ</label
           >
           <input
@@ -121,7 +115,7 @@
           type="submit"
         >
           <p class="uppercase font-bold text-2xl datmuasim">ĐẶT MUA SIM</p>
-          <span>FreeShip tận nơi</span>
+          <span class="text-red-300">FreeShip tận nơi</span>
         </button>
       </form>
     </div>
