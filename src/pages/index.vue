@@ -1,157 +1,155 @@
 <template>
-  <div class="bg-white">
-    Version 2
-    <nuxt-img
-      src="/img/top.jpg"
-      alt="Top"
-      sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-    />
-    <div style="padding: 8px">
-      <div class="" style="margin: 8px">
-        <div class="">
-          <div class="flex flex-row">
-            <!-- <label class="inline-block">Chọn gói cước</label> -->
-            <nuxt-img
-              src="/img/chon.jpg"
-              alt="Top"
-              class="h-8"
-              sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-            />
-            <div class="relative w-full border-none">
-              <select
-                id="comboA"
-                v-model="goicuoc"
-                class="
-                  text-white
-                  bg-red-500
-                  appearance-none
-                  border border-gray-300
-                  inline-block
-                  py-2
-                  pl-3
-                  pr-8
-                  rounded
-                  leading-tight
-                  minimal
-                "
-                @change="onChange($event)"
-              >
-                <option value="cs21g">CS21G &nbsp;</option>
-                <option value="cs21g3">CS21G3 &nbsp;</option>
-              </select>
-              <div
-                class="
-                  pointer-events-none
-                  absolute
-                  inset-y-0
-                  right-0
-                  flex
-                  items-center
-                  px-2
-                "
-              ></div>
+  <div class="md:max-w-3xl md:mx-auto">
+    <div class="bg-white">
+      Version 3.1
+      <nuxt-img
+        src="/img/top.jpg"
+        alt="Top"
+        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+      />
+      <div style="padding: 8px">
+        <div class="" style="margin: 8px">
+          <div class="">
+            <div class="flex flex-row">
+              <nuxt-img
+                src="/img/chon.jpg"
+                alt="Top"
+                class="h-8"
+                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+              />
+              <div class="relative w-full border-none">
+                <select
+                  id="comboA"
+                  v-model="goicuoc"
+                  class="
+                    text-white
+                    bg-red-500
+                    appearance-none
+                    border border-gray-300
+                    inline-block
+                    py-2
+                    pl-3
+                    pr-8
+                    rounded
+                    leading-tight
+                    minimal
+                  "
+                  @change="onChange($event)"
+                >
+                  <option value="cs21g">CS21G &nbsp;</option>
+                  <option value="cs21g3">CS21G3 &nbsp;</option>
+                </select>
+                <div
+                  class="
+                    pointer-events-none
+                    absolute
+                    inset-y-0
+                    right-0
+                    flex
+                    items-center
+                    px-2
+                  "
+                ></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="">
-        <!-- <b-table :items="items" responsive="sm" class="shadow table text-nowrap">
-      </b-table> -->
-        <table>
-          <tr>
-            <td style="font-weight: bold; text-align: center; width: 32px">
-              STT
-            </td>
-            <td style="font-weight: bold; text-align: center">SIM SỐ</td>
+        <div class="">
+          <table>
+            <tr>
+              <td style="font-weight: bold; text-align: center; width: 32px">
+                STT
+              </td>
+              <td style="font-weight: bold; text-align: center">SIM SỐ</td>
 
-            <td style="font-weight: bold; text-align: center" colspan="2">
-              GIÁ BÁN
-            </td>
-            <td style="font-weight: bold; text-align: center">ĐẶT MUA</td>
-          </tr>
+              <td style="font-weight: bold; text-align: center">GIÁ BÁN</td>
+              <td style="font-weight: bold; text-align: center">ĐẶT MUA</td>
+            </tr>
 
-          <tr v-for="(row, indx) in items" :key="indx" :index="indx">
-            <td style="padding-left: 8px; width: 16px">{{ indx + 1 }}</td>
-            <td style="text-align: center">{{ row.thuebao }}</td>
-            <td
-              v-if="row.goicuoc == 'CS21G'"
-              style="text-align: center"
-              class="line-through"
-            >
-              109.000đ
-            </td>
-            <td v-else style="text-align: center" class="line-through">
-              227.000đ
-            </td>
-            <td style="text-align: center" class="text-red-500 font-bold">
-              {{ row.gia }}
-            </td>
-            <td style="text-align: center">
-              <button
-                class="datngay my-1 p-1 bg-blue-600 text-white rounded-sm"
-                @click="
-                  $router.push({
-                    name: 'book',
-                    params: { item: row }
-                  })
-                "
-              >
-                Đặt ngay
-              </button>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <!-- <div v-for="(item, indx) in items" :key="indx" :index="indx" class="flex">
+            <tr v-for="(row, indx) in items" :key="indx" :index="indx">
+              <td style="padding-left: 8px; width: 16px">{{ indx + 1 }}</td>
+              <td style="text-align: center">{{ row.thuebao }}</td>
+
+              <td style="text-align: center">
+                <span
+                  v-if="row.goicuoc == 'CS21G'"
+                  style="text-align: center"
+                  class="line-through"
+                >
+                  109.000đ
+                </span>
+                <span v-else style="text-align: center" class="line-through">
+                  227.000đ
+                </span>
+                <span class="text-red-500 font-bold"> {{ row.gia }}</span>
+              </td>
+              <td style="text-align: center">
+                <button
+                  class="datngay my-1 p-1 bg-blue-600 text-white rounded-sm"
+                  @click="
+                    $router.push({
+                      name: 'book',
+                      params: { item: row }
+                    })
+                  "
+                >
+                  Đặt ngay
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- <div v-for="(item, indx) in items" :key="indx" :index="indx" class="flex">
         <span>{{ item.name }}</span>
       </div> -->
-    </div>
+      </div>
 
-    <nuxt-img
-      src="/img/middle.jpg"
-      alt="Top"
-      style="width: 100%; height: 100%"
-      sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-    />
-    <div class="flex flex-row">
-      <a href="sms:9084?&amp;body=BK1 CS21G" class="dangky w-full">
-        <nuxt-img
-          src="/img/21g.jpg"
-          alt="Top"
-          style="width: 100%; height: auto"
-          sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-        />
-      </a>
-      <a href="sms:9084?&amp;body=BK1 CS21G3" class="dangky w-full">
-        <nuxt-img
-          src="/img/21g3.jpg"
-          alt="Top"
-          style="width: 100%; height: auto"
-          sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-        />
-      </a>
-    </div>
-
-    <nuxt-img
-      src="/img/bottom.jpg"
-      alt="Top"
-      style="width: 100%; height: auto"
-      sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-    />
-    <a href="https://zalo.me/4045465745174208191" title="zalo">
       <nuxt-img
-        src="/img/zalo.png"
+        src="/img/middle.jpg"
         alt="Top"
-        style="
-          width: 90px;
-          height: 100px;
-          position: fixed;
-          bottom: 0px;
-          right: 0px;
-        "
+        style="width: 100%; height: 100%"
+        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
       />
-    </a>
+      <div class="flex flex-row">
+        <a href="sms:999?&amp;body=BK1 CS21G" class="dangkycs21g w-full">
+          <nuxt-img
+            src="/img/21g.jpg"
+            alt="Top"
+            style="width: 100%; height: auto"
+            sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+          />
+        </a>
+        <a href="sms:999?&amp;body=BK1 CS21G3" class="dangkycs21g3 w-full">
+          <nuxt-img
+            src="/img/21g3.jpg"
+            alt="Top"
+            style="width: 100%; height: auto"
+            sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+          />
+        </a>
+      </div>
+
+      <nuxt-img
+        src="/img/bottom.jpg"
+        alt="Top"
+        style="width: 100%; height: auto"
+        sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
+      />
+      <a href="https://zalo.me/4045465745174208191" title="zalo">
+        <nuxt-img
+          src="/img/zalo.png"
+          alt="Top"
+          style="
+            width: 90px;
+            height: 100px;
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+          "
+        />
+      </a>
+    </div>
   </div>
 </template>
 

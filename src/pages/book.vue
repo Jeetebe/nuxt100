@@ -1,123 +1,131 @@
 <template>
-  <div class="mt-6">
-    <div class="p-3 rounded-md border-gray-300 border mx-3">
-      <div class="grid grid-cols-2 gap-x-4">
-        <div class="text-right w-full">Số thuê bao</div>
-        <div class="text-red-600 font-semibold">
-          {{ item.thuebao }}
-        </div>
+  <div class="md:max-w-3xl md:mx-auto bg-gray-400">
+    <div class="py-6 h-screen bg-white">
+      <div class="p-3 rounded-md border-gray-300 border mx-3">
+        <div class="grid grid-cols-2 gap-x-4">
+          <div class="text-right w-full">Số thuê bao</div>
+          <div class="text-red-600 font-semibold">
+            {{ item.thuebao }}
+          </div>
 
-        <div class="text-right w-full">Giá bán</div>
-        <div class="text-blue-600 font-semibold">
-          {{ item.gia }}
-        </div>
+          <div class="text-right w-full">Giá bán</div>
+          <div class="text-blue-600 font-semibold">
+            {{ item.gia }}
+          </div>
 
-        <div class="text-right w-full">Gói cước</div>
-        <div class="font-semibold">{{ item.goicuoc }}</div>
+          <div class="text-right w-full">Gói cước</div>
+          <div class="font-semibold">{{ item.goicuoc }}</div>
+        </div>
       </div>
-    </div>
-    <div class="p-3">
-      <p class="uppercase text-black font-bold">thông tin giao hàng</p>
-      <form autocomplete="off" @submit.stop.prevent="submitClick">
-        <div class="relative mb-2">
-          <label for="email" class="leading-7 text-sm text-greenfresh font-bold"
-            >Họ tên</label
-          >
-          <input
-            v-model="form.hoten"
-            required
+      <div class="p-3">
+        <p class="uppercase text-black font-bold">thông tin giao hàng</p>
+        <form autocomplete="off" @submit.stop.prevent="submitClick">
+          <div class="relative mb-2">
+            <label
+              for="email"
+              class="leading-7 text-sm text-greenfresh font-bold"
+              >Họ tên</label
+            >
+            <input
+              v-model="form.hoten"
+              required
+              class="
+                w-full
+                bg-white
+                rounded
+                border border-gray-300
+                focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                text-base
+                outline-none
+                text-gray-700
+                py-1
+                px-3
+                leading-8
+                transition-colors
+                duration-200
+                ease-in-out
+              "
+            />
+          </div>
+          <div class="relative mb-2">
+            <label
+              for="email"
+              class="leading-7 text-sm text-greenfresh font-bold"
+              >Số điện thoại</label
+            >
+            <input
+              v-model="form.kh"
+              required
+              class="
+                w-full
+                bg-white
+                rounded
+                border border-gray-300
+                focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                text-base
+                outline-none
+                text-gray-700
+                py-1
+                px-3
+                leading-8
+                transition-colors
+                duration-200
+                ease-in-out
+              "
+            />
+          </div>
+          <div class="relative mb-2">
+            <label
+              for="email"
+              class="leading-7 text-sm text-greenfresh font-bold"
+              >Địa chỉ</label
+            >
+            <input
+              v-model="form.diachi"
+              required
+              class="
+                w-full
+                bg-white
+                rounded
+                border border-gray-300
+                focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
+                text-base
+                outline-none
+                text-gray-700
+                py-1
+                px-3
+                leading-8
+                transition-colors
+                duration-200
+                ease-in-out
+              "
+            />
+          </div>
+          <button
             class="
-              w-full
-              bg-white
+              bg-xanhduong
+              text-white
+              active:bg-gray-700
+              text-sm
+              font-bold
+              px-6
+              py-2
               rounded
-              border border-gray-300
-              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
-              text-base
+              hover:shadow-lg
               outline-none
-              text-gray-700
-              py-1
-              px-3
-              leading-8
-              transition-colors
-              duration-200
-              ease-in-out
+              focus:outline-none
+              mr-1
+              mb-1
+              w-full
+              mt-4
             "
-          />
-        </div>
-        <div class="relative mb-2">
-          <label for="email" class="leading-7 text-sm text-greenfresh font-bold"
-            >Số điện thoại</label
+            type="submit"
           >
-          <input
-            v-model="form.kh"
-            required
-            class="
-              w-full
-              bg-white
-              rounded
-              border border-gray-300
-              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
-              text-base
-              outline-none
-              text-gray-700
-              py-1
-              px-3
-              leading-8
-              transition-colors
-              duration-200
-              ease-in-out
-            "
-          />
-        </div>
-        <div class="relative mb-2">
-          <label for="email" class="leading-7 text-sm text-greenfresh font-bold"
-            >Địa chỉ</label
-          >
-          <input
-            v-model="form.diachi"
-            required
-            class="
-              w-full
-              bg-white
-              rounded
-              border border-gray-300
-              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200
-              text-base
-              outline-none
-              text-gray-700
-              py-1
-              px-3
-              leading-8
-              transition-colors
-              duration-200
-              ease-in-out
-            "
-          />
-        </div>
-        <button
-          class="
-            bg-xanhduong
-            text-white
-            active:bg-gray-700
-            text-sm
-            font-bold
-            px-6
-            py-2
-            rounded
-            hover:shadow-lg
-            outline-none
-            focus:outline-none
-            mr-1
-            mb-1
-            w-full
-            mt-4
-          "
-          type="submit"
-        >
-          <p class="uppercase font-bold text-2xl datmuasim">ĐẶT MUA SIM</p>
-          <span class="text-red-300">FreeShip tận nơi</span>
-        </button>
-      </form>
+            <p class="uppercase font-bold text-2xl datmuasim">ĐẶT MUA SIM</p>
+            <span class="text-red-300">FreeShip tận nơi</span>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
