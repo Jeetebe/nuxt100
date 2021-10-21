@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white">
-    Version 1
+    Version 2
     <nuxt-img
       src="/img/top.jpg"
       alt="Top"
