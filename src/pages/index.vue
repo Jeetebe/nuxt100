@@ -1,7 +1,6 @@
 <template>
   <div class="md:max-w-3xl md:mx-auto">
     <div class="bg-white">
-      Version 3.1
       <nuxt-img
         src="/img/top.jpg"
         alt="Top"
@@ -36,8 +35,8 @@
                   "
                   @change="onChange($event)"
                 >
-                  <option value="cs21g">CS21G &nbsp;</option>
-                  <option value="cs21g3">CS21G3 &nbsp;</option>
+                  <option value="CS21G">CS21G &nbsp;</option>
+                  <option value="CS21G3">CS21G3 &nbsp;</option>
                 </select>
                 <div
                   class="
@@ -85,7 +84,9 @@
                 <span class="text-red-500 font-bold"> {{ row.gia }}</span>
               </td>
               <td style="text-align: center">
+                <div v-if="row.trangthai">Đã bán</div>
                 <button
+                  v-else
                   class="datngay my-1 p-1 bg-blue-600 text-white rounded-sm"
                   @click="
                     $router.push({
@@ -158,33 +159,14 @@ export default {
   data: () => {
     return {
       loaded: false,
-      goicuoc: "cs21g",
-      items: [
-        {
-          id: 0,
-          name: "test0",
-          price: "$0"
-        },
-        {
-          id: 1,
-          name: "test1",
-          price: "$1"
-        },
-        {
-          id: 2,
-          name: "test2",
-          price: "$2"
-        },
-        {
-          id: 3,
-          name: "test3",
-          price: "$3"
-        }
-      ]
+      goicuoc: "CS21G",
+      items: [],
+      sim: []
     }
   },
 
   async mounted() {
+    const me = this
     // tracking utm
     var query = this.$route.query
     if (query.utm_source) {
@@ -204,16 +186,28 @@ export default {
         })
     }
 
-    const url = this.$axios.defaults.baseURL + "cs21g?h=1"
+    const url = this.$axios.defaults.baseURL + "sim4g?h=1"
 
     console.log(url)
-    this.items = await fetch(url).then((res) => res.json())
+    this.sim = await fetch(url).then((res) => res.json())
+    this.sim.forEach(function(item, index) {
+      if (item.goicuoc === "CS21G") {
+        me.items.push(item)
+      }
+    })
   },
   methods: {
     async onChange(val) {
+      const me = this
+      this.items = []
       console.log(this.goicuoc)
-      const url = "https://apptotapi2.tk:4099/" + this.goicuoc + "?h=1"
-      this.items = await fetch(url).then((res) => res.json())
+      // const url = "https://apptotapi2.tk:4099/" + this.goicuoc + "?h=1"
+      // this.items = await fetch(url).then((res) => res.json())
+      this.sim.forEach(function(item, index) {
+        if (item.goicuoc === me.goicuoc) {
+          me.items.push(item)
+        }
+      })
     }
   }
 }

@@ -131,10 +131,12 @@
 </template>
 
 <script>
+import * as moment from "moment"
 export default {
   layout: "dbl",
   data: () => {
     return {
+      config: {},
       loaded: false,
       item: {
         thuebao: null,
@@ -145,11 +147,15 @@ export default {
         hoten: null,
         diachi: null,
         loai: "SIM",
-        phone: "cskh"
+        phone: null,
+        kh: null
       }
     }
   },
   async mounted() {
+    const url = this.$axios.defaults.baseURL + "config?phone=939123456"
+    this.config = await fetch(url).then((res) => res.json())
+
     this.item = this.$route.params.item
     this.$axios
       .post(this.$axios.defaults.baseURL + "api/utm/addclick", this.item)
@@ -168,6 +174,51 @@ export default {
       this.form.caigi = this.item.thuebao
       this.form.gia = this.item.gia
       this.form.info = this.item.goicuoc
+
+      // log sheet
+      this.form.sheet = this.config.sheet
+      this.form.isdn = this.item.thuebao
+      this.form.sdt = this.form.kh
+      this.form.ngay = moment().format("YYYYMMDD HHmmss")
+      this.$axios
+        .post(this.$axios.defaults.baseURL + "adddonhang", this.form)
+        .then(function(response) {
+          console.log(response)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+      // Update sim
+      var url =
+        this.$axios.defaults.baseURL +
+        "dbl/updatesim?h=123&thuebao=" +
+        this.item.thuebao +
+        "&sheet=" +
+        this.config.sheet
+      this.$axios
+        .get(url)
+        .then(function(response) {
+          console.log(response)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+      // zalo
+      this.form.zaloid = this.config.zaloid
+      this.form.sdt = this.form.phone
+      this.form.isdn = this.item.thuebao
+      this.form.gia = this.item.gia
+      this.$axios
+        .post("https://api1adsreport.sim3khia.vn/sendzalo", this.form)
+        .then(function(response) {
+          console.log(response)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+
+      // log db
+      this.form.phone = this.config.phone
       this.$axios
         .post(this.$axios.defaults.baseURL + "addlog", this.form)
         .then(function(response) {
