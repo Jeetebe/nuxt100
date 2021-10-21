@@ -1,31 +1,15 @@
 const wpNuxtFeed = require("wp-nuxt/lib/rss")
 
 export default {
-  //ssr: false,
   target: 'static',
   srcDir: "src",
- // head: {
-    // script: [
-    //   {
-    //     src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    //   },    
-    // ],
-    // link: [
-    //   {
-    //     rel: 'stylesheet',
-    //     href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
-    //   }
-    // ]
-  //},
-  // plugins: [
-  //   "@/plugins/gtm.js",
-  // ],
+
   modules: [
     "wp-nuxt",
     "nuxt-stack",
     '@nuxt/image',
     "@nuxtjs/axios",
-   // "@nuxtjs/gtm",
+    "@nuxtjs/gtm",
     //'bootstrap-vue/nuxt'
     '@nuxtjs/tailwindcss'
   ],
@@ -36,9 +20,9 @@ export default {
   axios: {   
     baseURL: "https://apptotapi2.tk:4099/"
   },
-  // gtm: {
-  //   id: "GTM-TPQ9C5Q"
-  // },
+  gtm: {
+    id: "GTM-5KWF9DK"
+  },
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",
     configPath: "tailwind.config.js",
