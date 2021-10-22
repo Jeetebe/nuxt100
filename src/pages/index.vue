@@ -2,10 +2,12 @@
   <div class="md:max-w-3xl md:mx-auto bg-gray-400">
     <div class="bg-white">
       <nuxt-img
-        src="/img/top.jpg"
+        class="md:hidden"
+        src="/img/top.webp"
         alt="Top"
         sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
       />
+      <nuxt-img class="hidden md:block" src="/img/pctop.webp" alt="Top" />
       <div style="padding: 8px">
         <div class="" style="margin: 8px">
           <div class="">
