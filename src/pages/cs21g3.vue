@@ -1,5 +1,5 @@
 <template>
-  <div class="md:max-w-3xl md:mx-auto bg-gray-400">
+  <div class="md:max-w-3xl md:mx-auto">
     <div class="bg-white">
       <nuxt-img
         src="/img/top.jpg"
@@ -159,7 +159,7 @@ export default {
   data: () => {
     return {
       loaded: false,
-      goicuoc: "CS21G",
+      goicuoc: "CS21G3",
       items: [],
       sim: []
     }
@@ -191,7 +191,7 @@ export default {
     console.log(url)
     this.sim = await fetch(url).then((res) => res.json())
     this.sim.forEach(function(item, index) {
-      if (item.goicuoc === "CS21G") {
+      if (item.goicuoc === "CS21G3") {
         me.items.push(item)
       }
     })

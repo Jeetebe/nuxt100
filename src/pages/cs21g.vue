@@ -1,5 +1,5 @@
 <template>
-  <div class="md:max-w-3xl md:mx-auto bg-gray-400">
+  <div class="md:max-w-3xl md:mx-auto">
     <div class="bg-white">
       <nuxt-img
         src="/img/top.jpg"
