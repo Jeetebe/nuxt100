@@ -1,21 +1,19 @@
 <template>
-  <div class="md:max-w-3xl md:mx-auto">
+  <div class="md:max-w-3xl md:mx-auto bg-gray-400">
     <div class="bg-white">
       <nuxt-img
-        src="/img/top.jpg"
+        class="md:hidden"
+        src="/img/top.webp"
         alt="Top"
         sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
       />
+      <nuxt-img class="hidden md:block" src="/img/pctop.jpg" alt="Top" />
       <div style="padding: 8px">
         <div class="" style="margin: 8px">
           <div class="">
-            <div class="flex flex-row">
-              <nuxt-img
-                src="/img/chon.jpg"
-                alt="Top"
-                class="h-8"
-                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-              />
+            <div class="flex flex-row items-center">
+              <nuxt-img src="/img/chon.jpg" alt="Top" class="h-8 w-48" />
+
               <div class="relative w-full border-none">
                 <select
                   id="comboA"
@@ -68,7 +66,9 @@
 
             <tr v-for="(row, indx) in items" :key="indx" :index="indx">
               <td style="padding-left: 8px; width: 16px">{{ indx + 1 }}</td>
-              <td style="text-align: center">{{ row.thuebao }}</td>
+              <td style="text-align: center" class="font-bold">
+                {{ row.thuebao }}
+              </td>
 
               <td style="text-align: center">
                 <span
@@ -91,11 +91,11 @@
                   @click="
                     $router.push({
                       name: 'book',
-                      params: { item: row }
+                      params: { item: row },
                     })
                   "
                 >
-                  Đặt ngay
+                  Mua ngay
                 </button>
               </td>
             </tr>
@@ -161,7 +161,7 @@ export default {
       loaded: false,
       goicuoc: "CS21G3",
       items: [],
-      sim: []
+      sim: [],
     }
   },
 
@@ -174,14 +174,14 @@ export default {
         utm_source: query.utm_source,
         utm_medium: query.utm_medium,
         utm_content: query.utm_content,
-        utm_campaign: query.utm_campaign
+        utm_campaign: query.utm_campaign,
       }
       this.$axios
         .post(this.$axios.defaults.baseURL + "api/utm/add", utm)
-        .then(function(response) {
+        .then(function (response) {
           console.log(response)
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error)
         })
     }
@@ -190,7 +190,7 @@ export default {
 
     console.log(url)
     this.sim = await fetch(url).then((res) => res.json())
-    this.sim.forEach(function(item, index) {
+    this.sim.forEach(function (item, index) {
       if (item.goicuoc === "CS21G3") {
         me.items.push(item)
       }
@@ -203,13 +203,13 @@ export default {
       console.log(this.goicuoc)
       // const url = "https://apptotapi2.tk:4099/" + this.goicuoc + "?h=1"
       // this.items = await fetch(url).then((res) => res.json())
-      this.sim.forEach(function(item, index) {
+      this.sim.forEach(function (item, index) {
         if (item.goicuoc === me.goicuoc) {
           me.items.push(item)
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
