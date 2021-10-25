@@ -7,17 +7,13 @@
         alt="Top"
         sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
       />
-      <nuxt-img class="hidden md:block" src="/img/pctop.webp" alt="Top" />
+      <nuxt-img class="hidden md:block" src="/img/pctop.jpg" alt="Top" />
       <div style="padding: 8px">
         <div class="" style="margin: 8px">
           <div class="">
-            <div class="flex flex-row">
-              <nuxt-img
-                src="/img/chon.jpg"
-                alt="Top"
-                class="h-8"
-                sizes="xl:100vw lg:100vw md:100vw sm:100vw xs:100vw"
-              />
+            <div class="flex flex-row items-center">
+              <nuxt-img src="/img/chon.jpg" alt="Top" class="h-8 w-48" />
+
               <div class="relative w-full border-none">
                 <select
                   id="comboA"
@@ -70,7 +66,9 @@
 
             <tr v-for="(row, indx) in items" :key="indx" :index="indx">
               <td style="padding-left: 8px; width: 16px">{{ indx + 1 }}</td>
-              <td style="text-align: center">{{ row.thuebao }}</td>
+              <td style="text-align: center" class="font-bold">
+                {{ row.thuebao }}
+              </td>
 
               <td style="text-align: center">
                 <span
@@ -97,7 +95,7 @@
                     })
                   "
                 >
-                  Đặt ngay
+                  Mua ngay
                 </button>
               </td>
             </tr>
