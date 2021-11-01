@@ -205,7 +205,7 @@ export default {
         })
       // zalo
       this.form.zaloid = this.config.zaloid
-      this.form.sdt = this.form.phone
+      this.form.sdt = this.form.kh
       this.form.isdn = this.item.thuebao
       this.form.gia = this.item.gia
       this.$axios
