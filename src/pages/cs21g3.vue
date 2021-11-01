@@ -91,7 +91,7 @@
                   @click="
                     $router.push({
                       name: 'book',
-                      params: { item: row },
+                      params: { item: row }
                     })
                   "
                 >
@@ -161,7 +161,7 @@ export default {
       loaded: false,
       goicuoc: "CS21G3",
       items: [],
-      sim: [],
+      sim: []
     }
   },
 
@@ -174,14 +174,14 @@ export default {
         utm_source: query.utm_source,
         utm_medium: query.utm_medium,
         utm_content: query.utm_content,
-        utm_campaign: query.utm_campaign,
+        utm_campaign: query.utm_campaign
       }
       this.$axios
         .post(this.$axios.defaults.baseURL + "api/utm/add", utm)
-        .then(function (response) {
+        .then(function(response) {
           console.log(response)
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error)
         })
     }
@@ -190,7 +190,7 @@ export default {
 
     console.log(url)
     this.sim = await fetch(url).then((res) => res.json())
-    this.sim.forEach(function (item, index) {
+    this.sim.forEach(function(item, index) {
       if (item.goicuoc === "CS21G3") {
         me.items.push(item)
       }
@@ -203,13 +203,13 @@ export default {
       console.log(this.goicuoc)
       // const url = "https://apptotapi2.tk:4099/" + this.goicuoc + "?h=1"
       // this.items = await fetch(url).then((res) => res.json())
-      this.sim.forEach(function (item, index) {
+      this.sim.forEach(function(item, index) {
         if (item.goicuoc === me.goicuoc) {
           me.items.push(item)
         }
       })
-    },
-  },
+    }
+  }
 }
 </script>
 
